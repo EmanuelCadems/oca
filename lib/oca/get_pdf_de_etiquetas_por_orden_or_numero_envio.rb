@@ -1,6 +1,5 @@
 #encoding=utf-8
 class Oca::GetPdfDeEtiquetasPorOrdenOrNumeroEnvio < Oca::Base
-  # headers "Content-Type" => "text/xml"
 
   # p = Oca::GetPdfDeEtiquetasPorOrdenOrNumeroEnvio.new(IdOrdenRetiro: 38283012, nroEnvio: 2320800000000000087, logisticaInversa: false)
   def initialize(options = {})
@@ -15,7 +14,7 @@ class Oca::GetPdfDeEtiquetasPorOrdenOrNumeroEnvio < Oca::Base
       result = self.class.post(
         "/oep_tracking/Oep_Track.asmx",
         body: data
-        ) # , format: 'application/xml'
+        )
 
       return unless result.body
 

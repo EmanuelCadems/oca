@@ -11,7 +11,6 @@ class Oca::Base
 
   headers "Accept-Encoding" => "gzip,deflate"
   headers "Content-Type" => "application/soap+xml;charset=UTF-8"
-  # headers "Content-Type" => "text/xml"
 
   attr_reader :usr, :pwd
 

@@ -1,5 +1,6 @@
 #encoding=utf-8
 class Oca::GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio < Oca::Base
+
   # h = Oca::GetHtmlDeEtiquetasPorOrdenOrNumeroEnvio.new(IdOrdenRetiro: 38283012, nroEnvio: 2320800000000000087)
   def initialize(options = {})
     @IdOrdenRetiro = options[:IdOrdenRetiro]

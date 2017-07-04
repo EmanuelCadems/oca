@@ -2,7 +2,7 @@ class Oca::IngresoOrMultiplesRetiros < Oca::Base
 
   # o = Oca::IngresoOrMultiplesRetiros.new(calle: 'La Rioja', nro: '300', piso: '', depto: '', cp: '1215', localidad: 'CAPITAL FEDERAL', provincia: 'CAPITAL FEDERAL', contacto: '', email: 'test@oca.com.ar', solicitante: '', observaciones: '', centrocosto: '', idfranjahoraria: '1', idcentroimposicionorigen: '0', fecha: '20151015', idoperativa: '276783', nroremito: 'Envio1', apellido: 'Fernandez', nombre: 'Martin', destinatario_calle: 'BALCARCE', destinatario_nro: '50', destinatario_piso:'', destinatario_depto: '', destinatario_localidad: 'CAPITAL FEDERAL', destinatario_provincia: 'CAPITAL FEDERAL', destinatario_cp: '1214', destinatario_telefono: '49569622', destinatario_email: 'test@oca.com.ar', destinatario_idci: '0', destinatario_celular: '1121877788', destinatario_observaciones: 'Prueba', alto: '10', ancho:'10', largo: '10', peso:'1', valor: '10', cant: '3' )
   def initialize(options = {})
-    @nrocuenta                  = "111239/000"
+    @nrocuenta                  = ENV['OCA_NROCUENTA']
     @calle                      = options[:calle]
     @nro                        = options[:nro]
     @piso                       = options[:piso]
