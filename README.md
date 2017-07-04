@@ -28,7 +28,7 @@ Firt of all add the following environment variables:
 After doing that you can start playing out:
 
 ### Tarifar Envío Corporativo
-
+```ruby
 t = Oca::TarifarEnvioCorporativo.new(PesoTotal: 10, VolumenTotal: 1, CodigoPostalOrigen: 5500, CodigoPostalDestino: 5500, CantidadPaquetes: 4 , Cuit: '30-68419570-7', Operativa: '276783')
 
 r = t.submit
