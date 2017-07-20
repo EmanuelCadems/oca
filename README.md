@@ -52,7 +52,7 @@ Then open in your browser mi_etiqueta.html
 ```ruby
 p = Oca::GetPdfDeEtiquetasPorOrdenOrNumeroEnvio.new(IdOrdenRetiro: 38283012, nroEnvio: 2320800000000000087, logisticaInversa: false)
 r = p.submit
-pdf = Oca::PdfUtil.new(name: 'my_pdf', content: r["GetPdfDeEtiquetasPorOrdenOrNumeroEnvioResult"])
+pdf = Oca::Oca::FileConverter.new(name: 'my_pdf', content: r["GetPdfDeEtiquetasPorOrdenOrNumeroEnvioResult"])
 pdf.convert
 ```
 Then open my_pdf.pdf in your project's folder
