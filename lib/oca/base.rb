@@ -18,7 +18,7 @@ class Oca::Base
 
   def initialize(options = {})
     @usr = options[:usr] || ENV['OCA_EMAIL']
-    @pwd = options[:pwd] || ENV['OCA_PASSWORD']
+    @pwd = options[:pwd] || "<![CDATA[#{ENV['OCA_PASSWORD']}]]>"
   end
 
 end
