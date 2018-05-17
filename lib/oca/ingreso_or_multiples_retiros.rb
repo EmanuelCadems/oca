@@ -1,7 +1,11 @@
+#encoding=utf-8
 class Oca::IngresoOrMultiplesRetiros < Oca::Base
-
   # o = Oca::IngresoOrMultiplesRetiros.new(calle: 'La Rioja', nro: '300', piso: '', depto: '', cp: '1215', localidad: 'CAPITAL FEDERAL', provincia: 'CAPITAL FEDERAL', contacto: '', email: 'test@oca.com.ar', solicitante: '', observaciones: '', centrocosto: '', idfranjahoraria: '1', idcentroimposicionorigen: '0', fecha: '20151015', idoperativa: '292877', nroremito: 'Envio1', apellido: 'Fernandez', nombre: 'Martin', destinatario_calle: 'BALCARCE', destinatario_nro: '50', destinatario_piso:'', destinatario_depto: '', destinatario_localidad: 'CAPITAL FEDERAL', destinatario_provincia: 'CAPITAL FEDERAL', destinatario_cp: '1214', destinatario_telefono: '49569622', destinatario_email: 'test@oca.com.ar', destinatario_idci: '0', destinatario_celular: '1121877788', destinatario_observaciones: 'Prueba', alto: '10', ancho:'10', largo: '10', peso:'1', valor: '10', cant: '3', confirmar_retiro: true)
+  # Invalid character as double quotes will be removed:
+  # B° Alto Lujan - Mzna \"M\"
   def initialize(options = {})
+
+    super(options)
     @nrocuenta                  = ENV['OCA_NROCUENTA']
     @calle                      = options[:calle]
     @nro                        = options[:nro]
@@ -41,8 +45,6 @@ class Oca::IngresoOrMultiplesRetiros < Oca::Base
     @valor                      = options[:valor]
     @cant                       = options[:cant]
     @confirmar_retiro           = options[:confirmar_retiro]
-
-    super(options)
   end
 
   def submit
@@ -72,7 +74,7 @@ class Oca::IngresoOrMultiplesRetiros < Oca::Base
          <!--Optional:-->
          <oca:psw>#{@pwd}</oca:psw>
          <!--Optional:-->
-         <oca:xml_Datos><![CDATA[<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?><ROWS><cabecera ver="2.0" nrocuenta="#{@nrocuenta}" /><origenes><origen calle="#{@calle}" nro="#{@nro}" piso="#{@piso}" depto="#{@depto}" cp="#{@cp}" localidad="#{@localidad}" provincia="#{@provincia}" contacto="#{@contacto}" email="#{@email}" solicitante="#{@solicitante}" observaciones="#{@observaciones}" centrocosto="#{@centrocosto}" idfranjahoraria="#{@idfranjahoraria}" idcentroimposicionorigen="#{@idcentroimposicionorigen}" fecha="#{@fecha}"> <envios><envio idoperativa="#{@idoperativa}" nroremito="#{@nroremito}"><destinatario apellido="#{@apellido}" nombre="#{@nombre}" calle="#{@destinatario_calle}" nro="#{@destinatario_nro}" piso="#{@destinatario_piso}" depto="#{@destinatario_depto}" localidad="#{@destinatario_localidad}" provincia="#{@destinatario_provincia}" cp="#{@destinatario_cp}" telefono="#{@destinatario_telefono}" email="#{@destinatario_email}" idci="#{@destinatario_idci}" celular="#{@destinatario_celular}" observaciones="#{@destinatario_observaciones}" /><paquetes><paquete alto="#{@alto}" ancho="#{@ancho}" largo="#{@largo}" peso="#{@peso}" valor="#{@valor}" cant="#{@cant}" /></paquetes></envio></envios></origen></origenes></ROWS>]]></oca:xml_Datos>
+         <oca:xml_Datos><![CDATA[<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?><ROWS><cabecera ver="2.0" nrocuenta="#{@nrocuenta}" /><origenes><origen calle="#{@calle}" nro="#{@nro}" piso="#{@piso}" depto="#{@depto}" cp="#{@cp}" localidad="#{@localidad}" provincia="#{@provincia}" contacto="#{@contacto}" email="#{@email}" solicitante="#{@solicitante}" observaciones="#{@observaciones}" centrocosto="#{@centrocosto}" idfranjahoraria="#{@idfranjahoraria}" idcentroimposicionorigen="#{@idcentroimposicionorigen}" fecha="#{@fecha}"> <envios><envio idoperativa="#{@idoperativa}" nroremito="#{@nroremito}"><destinatario apellido="#{@apellido}" nombre="#{@nombre}" calle=\"#{@destinatario_calle}\" nro="#{@destinatario_nro}" piso="#{@destinatario_piso}" depto="#{@destinatario_depto}" localidad="#{@destinatario_localidad}" provincia="#{@destinatario_provincia}" cp="#{@destinatario_cp}" telefono="#{@destinatario_telefono}" email="#{@destinatario_email}" idci="#{@destinatario_idci}" celular="#{@destinatario_celular}" observaciones="#{@destinatario_observaciones}" /><paquetes><paquete alto="#{@alto}" ancho="#{@ancho}" largo="#{@largo}" peso="#{@peso}" valor="#{@valor}" cant="#{@cant}" /></paquetes></envio></envios></origen></origenes></ROWS>]]></oca:xml_Datos>
          <oca:ConfirmarRetiro>#{@confirmar_retiro}</oca:ConfirmarRetiro>
          <!--Optional:-->
          <oca:ArchivoCliente></oca:ArchivoCliente>

@@ -17,8 +17,19 @@ class Oca::Base
   validates :usr, :pwd, presence: true
 
   def initialize(options = {})
+    options.each do |k, v|
+      if v.is_a?(String) && is_excluded?(k)
+        options[k] = v.gsub(/[^[[:alnum:]]*[\s\:\.()º°'\/,]*]/i, '')
+      end
+    end
     @usr = options[:usr] || ENV['OCA_EMAIL']
     @pwd = options[:pwd] || "<![CDATA[#{ENV['OCA_PASSWORD']}]]>"
+  end
+
+  private
+
+  def is_excluded?(field)
+    [:destinatario_email, :email].exclude?(field)
   end
 
 end
