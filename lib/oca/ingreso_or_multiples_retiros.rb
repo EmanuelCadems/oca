@@ -4,7 +4,6 @@ class Oca::IngresoOrMultiplesRetiros < Oca::Base
   # Invalid character as double quotes will be removed:
   # B° Alto Lujan - Mzna \"M\"
   def initialize(options = {})
-
     super(options)
     @nrocuenta                  = ENV['OCA_NROCUENTA']
     @calle                      = options[:calle]
