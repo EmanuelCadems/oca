@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Oca::VERSION
   spec.authors       = ["Emanuel Alarcón"]
   spec.email         = ["emanuel_cadems@hotmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
+  spec.summary       = 'Oca sdk for Ruby'
   spec.description   = 'OCA SDK for Ruby on Rails'
   spec.homepage      = ""
   spec.license       = "MIT"
