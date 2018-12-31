@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Emanuel Alarcón"]
   spec.email         = ["emanuel_cadems@hotmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = 'OCA SDK for Ruby on Rails'
   spec.homepage      = ""
   spec.license       = "MIT"
 
